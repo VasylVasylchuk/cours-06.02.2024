@@ -1,35 +1,40 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class ClassComponent extends Component {
   constructor(props) {
+    console.log('props',props);
     super(props);
     this.state = {
-      count: 0
+      count: 0,
+      name: 'test'
     };
   }
 
   componentDidMount() {
-    console.log('Component did mount');
+    console.log("Component did mount");
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('Component did update');
+
   }
 
   componentWillUnmount() {
-    console.log('Component will unmount');
+    console.log("Component will unmount");
   }
 
   increment = () => {
-    this.setState((prevState) => ({
-      count: prevState.count + 1
-    }));
-  }
+    this.setState((prevState) => {
+      return {
+        count: prevState.count + 1,
+      };
+    });
+  };
 
   render() {
+    console.log(111);
     return (
       <div>
-        <h1>Count: {this.state.count}</h1>
+        <h1>Count: {this.state.count} {this.state.name} </h1>
         <button onClick={this.increment}>Increment</button>
       </div>
     );
